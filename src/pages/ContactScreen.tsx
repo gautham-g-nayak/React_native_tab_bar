@@ -18,12 +18,12 @@ const DATA = [
   },
 ];
 
-function ContactScreen() {
+function ContactScreen({navigation}: any) {
   return (
     <FlatList
       data={[...DATA, ...DATA, ...DATA, ...DATA, ...DATA]}
       renderItem={({item}) => {
-        return contactComponent(item);
+        return contactComponent(item, navigation);
       }}
       keyExtractor={(item, index) => index.toString()}
       ItemSeparatorComponent={HorizontalDivider}

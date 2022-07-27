@@ -1,15 +1,19 @@
-import {StyleSheet, Image, View} from 'react-native';
+import {StyleSheet, Image, TouchableOpacity} from 'react-native';
 import * as React from 'react';
 
 type albumProps = {
   img: any;
 };
 
-const AlbumComponent = ({img}: albumProps) => {
+const AlbumComponent = ({img}: albumProps, navigation: any) => {
   return (
-    <View style={styles.imageContainer}>
+    <TouchableOpacity
+      style={styles.imageContainer}
+      onPress={() => {
+        navigation.navigate('Details', {img: img});
+      }}>
       <Image style={styles.image} source={img} />
-    </View>
+    </TouchableOpacity>
   );
 };
 

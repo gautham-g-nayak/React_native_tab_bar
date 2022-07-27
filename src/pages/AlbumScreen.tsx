@@ -19,12 +19,12 @@ const DATA = [
   },
 ];
 
-function AlbumScreen() {
+function AlbumScreen({navigation}: any) {
   return (
     <FlatList
       data={[...DATA, ...DATA, ...DATA, ...DATA, ...DATA]}
       renderItem={({item}) => {
-        return AlbumComponent(item);
+        return AlbumComponent(item, navigation);
       }}
       numColumns={2}
       keyExtractor={(item, index) => index.toString()}

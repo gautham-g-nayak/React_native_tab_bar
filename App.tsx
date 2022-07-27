@@ -1,18 +1,18 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import ContactScreen from './src/pages/ContactScreen';
-import AlbumScreen from './src/pages/AlbumScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Home from './src/pages/HomePage';
+import DetailsPage from './src/pages/DetailsPage';
 
-const Tab = createMaterialTopTabNavigator();
+const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Contact" component={ContactScreen} />
-        <Tab.Screen name="Album" component={AlbumScreen} />
-      </Tab.Navigator>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Details" component={DetailsPage} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

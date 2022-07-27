@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import * as React from 'react';
 
 type contactProps = {
@@ -6,9 +6,13 @@ type contactProps = {
   phNo: number;
 };
 
-const ContactComponent = ({name, phNo}: contactProps) => {
+const ContactComponent = ({name, phNo}: contactProps, navigation: any) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        navigation.navigate('Details', {name: name, phNo: phNo});
+      }}>
       <View style={styles.profile}>
         <Text style={styles.profileText}>{name.charAt(0)}</Text>
       </View>
@@ -16,7 +20,7 @@ const ContactComponent = ({name, phNo}: contactProps) => {
         <Text style={styles.HeadingText}>{name}</Text>
         <Text style={styles.SubText}>{phNo}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
